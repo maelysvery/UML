@@ -16,9 +16,7 @@ public class RequestMenu {
 
         Random number = new Random();
 
-        int min = 0;
-        int max = 2;
-        random_number = number.nextInt(min + max);
+        random_number = number.nextInt(4);
 
         System.out.print("Random number received : " + random_number + "\n");
 
