@@ -65,7 +65,7 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("\nIncorrect choice. Select again please.");
+                    System.out.println("\nIncorrect choice. Please select again.");
             }
 
         }
