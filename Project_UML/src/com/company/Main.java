@@ -10,7 +10,7 @@ public class Main {
         int nb_passengers = 0;
         int nb_requests = 0;
         int choice1 = 0;
-        int again = 1;
+        int again = 1; 
 
         while (again == 1){
 
