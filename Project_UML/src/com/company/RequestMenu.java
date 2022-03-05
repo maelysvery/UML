@@ -18,7 +18,7 @@ public class RequestMenu {
 
         random_number = number.nextInt(4);
 
-        System.out.print("Random number received : " + random_number + "\n");
+        System.out.print("Number of requests : " + random_number + "\n");
 
 
     }
