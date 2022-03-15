@@ -37,11 +37,11 @@ public class RunwayMenu {
 
         System.out.println(number_runways + " runways\n");
 
-        System.out.println("Row | Name of occupant | Occupied time remaining | \n");
+        System.out.println("|      Row        |      Name of occupant   |   Occupied time remaining | \n");
 
         for (int i = 0; i < runway.length; i++){
 
-            System.out.print((i+1));
+            System.out.print("        " +(i+1));
 
             System.out.print("\t\t\t" + runway[i] + "        ");
 
