@@ -91,6 +91,7 @@ public class Main {
                         break;
 
                     case 4:
+                        System.exit(0);
 
                         again = 0;
 
@@ -143,6 +144,7 @@ public class Main {
                         break;
 
                     case 4:
+                        System.exit(0);
                         again = 0;
                         break;
 
