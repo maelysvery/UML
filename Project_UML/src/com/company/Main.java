@@ -110,7 +110,18 @@ public class Main {
                 System.out.println("3) Go to Runway Menu");
                 System.out.println("4) Quit");
                 System.out.print("\nEnter your choice : ");
-                choice1 = scanner.nextInt();
+                while (choice1 !=1 && choice1 !=2 && choice1 != 3 && choice1 != 4){
+                    System.out.println(ANSI_RED+"----------------");
+                    System.out.println(ANSI_RED+"ERROR !");
+                    System.out.println(ANSI_RED+"----------------");
+                    System.out.println(ANSI_RESET+"\n------------------------------------------------\n");
+                    System.out.println("1) Advance to next hour");
+                    System.out.println("2) Go to Waiting Planes Menu");
+                    System.out.println("3) Go to Runway Menu");
+                    System.out.println("4) Quit");
+                    System.out.print("\nEnter your choice : ");
+                    choice1 = scanner.nextInt();
+                }
 
 
                 switch (choice1){
