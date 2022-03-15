@@ -17,6 +17,8 @@ public class WaitingPlanes {
 
     public void main(){
 
+        System.out.println("\nWaitings Planes\n");
+
         for (int i = 0; i < plane.length; i++){
 
             plane[i][0] = "Air " + (i+1);
@@ -76,11 +78,11 @@ public class WaitingPlanes {
 
         // Open or close runway ?
         RunwayMenu runwayMenu = new RunwayMenu();
-        String[][] runway = runwayMenu.getRunway();
+        Plane [] runway = runwayMenu.getRunway();
 
         for (int i = 0; i < runway.length; i++) {
 
-            if(runway[i][0] == null) {
+            if(runway[i] == null) {
 
                 return i;
             }

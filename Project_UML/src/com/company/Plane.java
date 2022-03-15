@@ -4,22 +4,16 @@ import java.util.Random;
 
 public class Plane {
 
-    public String plane_name;
+    public String name;
     public int fuel_left;
     public int runway_time;
     public int passengers;
 
+    private static int ID = 1;
+
     public Plane(){
-
-
-    }
-
-    public String getPlane_name() {
-        return plane_name;
-    }
-
-    public void setPlane_name(String plane_name) {
-        this.plane_name = plane_name;
+        this.name = "Plane " + ID;
+        ID ++;
     }
 
     public int getFuel_left() {
@@ -46,10 +40,13 @@ public class Plane {
         this.passengers = passengers;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int random(int min, int max){
 
         Random random = new Random();
-
         return random.nextInt(max - min + 1) + min;
     }
 
@@ -72,8 +69,14 @@ public class Plane {
     public void setJumboJet(){
 
         this.fuel_left = random(4, 6);
-        // this.runway_time = random(3, 5);
+        this.runway_time = random(1, 4);
         this.passengers = random(300, 600);
 
+    }
+
+    @Override
+    public String toString()
+    {
+        return (name + "        " + runway_time);
     }
 }

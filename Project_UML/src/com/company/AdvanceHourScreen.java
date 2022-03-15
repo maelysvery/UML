@@ -41,9 +41,11 @@ public class AdvanceHourScreen {
 
     public void main(){
 
+        System.out.println("\nNext hour\n");
+
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Current time : " + (time+1));
+        System.out.println("Current time : " + (time));
 
         RequestMenu requestMenu = new RequestMenu();
         nb_requests = requestMenu.getRandom_number();
@@ -55,14 +57,6 @@ public class AdvanceHourScreen {
 
             System.out.println("\nGame over");
             System.exit(0);
-
-        }
-
-        else if(nb_passengers < 350){
-
-            String[] args = new String[0];
-
-            Main.main(args);
 
         }
 

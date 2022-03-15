@@ -6,15 +6,21 @@ import java.util.Scanner;
 
 public class RunwayMenu {
 
-    public String [][] runway = new String[8][2];
+    public Plane [] runway = new Plane[8];
     public String choice;
+    public int number_runways = 8;
 
-    public String[][] getRunway() {
+    public Plane [] getRunway() {
         return runway;
     }
 
-    public void setRunway(String[][] runway) {
+    public void setRunway(Plane [] runway) {
         this.runway = runway;
+    }
+
+    public void addPlane(int i, Plane plane)
+    {
+        this.runway[i] = plane;
     }
 
     public String getChoice() {
@@ -27,14 +33,9 @@ public class RunwayMenu {
 
     public void main(){
 
-        System.out.println("8 runways\n");
+        System.out.println("\nRunway Menu\n");
 
-        for (int i = 0; i < runway.length; i++){
-
-            if(i != 0){
-                runway[i][0] = "Occupant " + (i+1);
-            }
-        }
+        System.out.println(number_runways + " runways\n");
 
         System.out.println("Row | Name of occupant | Occupied time remaining | \n");
 
@@ -42,11 +43,9 @@ public class RunwayMenu {
 
             System.out.print((i+1));
 
-            for(int j = 0; j < runway[i].length; j ++){
+            System.out.print("\t\t\t" + runway[i] + "        ");
 
-                System.out.print("\t\t\t" + runway[i][j] + "        ");
 
-            }
 
             System.out.println();
 

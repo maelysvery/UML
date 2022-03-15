@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -14,52 +15,41 @@ public class Main {
         int random_number = 0;
 
         while (again == 1){
-            RequestMenu request = new RequestMenu();
-            request.main();
-            random_number = request.getRandom_number();
+
+            Random number = new Random();
+            int min = 1;
+            int max = 3;
+            random_number = number.nextInt(max - min + 1) + min;
 
             System.out.println("\n------------------------------------------------");
-            System.out.print("\nRandom number received : " + random_number + "\n");
-
-            if (random_number == 1){
-                System.out.println("1 request");
-            }
-
-            else if(random_number == 2){
-                System.out.println("2 requests");
-            }
-
-            else if(random_number == 3){
-                System.out.println("3 requests");
-            }
+            System.out.print("\nNumber of requests received : " + random_number + "\n");
 
             Scanner scanner = new Scanner(System.in);
             AdvanceHourScreen advanceHourScreen = new AdvanceHourScreen(hour, nb_requests, nb_passengers);
-            hour = advanceHourScreen.getTime();
-            nb_passengers = advanceHourScreen.getNb_passengers();
-            System.out.println("\n\t\t\t\t\t\t" + hour + "," + nb_passengers);
 
-            if(random_number != 0){
+            while(random_number != 0){
+                hour = advanceHourScreen.getTime();
+                nb_passengers = advanceHourScreen.getNb_passengers();
+                System.out.println("\n\t\t\t\t\t\t" + "Hour : " + hour + ", Passengers killed : " + nb_passengers);
 
                 System.out.println("1) Go to Request Menu");
                 System.out.println("2) Go to Waiting Planes Menu");
                 System.out.println("3) Go to Runway Menu");
                 System.out.println("4) Quit");
                 System.out.print("\nEnter your choice : ");
+
                 choice1 = scanner.nextInt();
 
                 switch (choice1){
                     case 1:
 
-                        System.out.println("\nRequest Menu\n");
-
                         RequestMenu requestMenu = new RequestMenu();
-                        requestMenu.requests(random_number  );
+                        requestMenu.requests();
+                        random_number--;
+
                         break;
 
                     case 2:
-
-                        System.out.println("\nWaitings Planes\n");
 
                         WaitingPlanes waitingPlanes = new WaitingPlanes();
                         waitingPlanes.main();
@@ -68,15 +58,15 @@ public class Main {
 
                     case 3:
 
-                        System.out.println("\nRunway Menu\n");
-
                         RunwayMenu runwayMenu = new RunwayMenu();
                         runwayMenu.main();
 
                         break;
 
                     case 4:
+
                         again = 0;
+
                         break;
 
                     default:
@@ -85,7 +75,8 @@ public class Main {
 
             }
 
-            else if(random_number == 0){
+            if(random_number == 0){
+                System.out.println("\n------------------------------------------------\n");
                 System.out.println("1) Advance to next hour");
                 System.out.println("2) Go to Waiting Planes Menu");
                 System.out.println("3) Go to Runway Menu");
@@ -96,18 +87,17 @@ public class Main {
                 switch (choice1){
                     case 1:
 
-                        System.out.println("\nNext hour\n");
+                        hour++;
+
+                        advanceHourScreen.setTime(hour);
+                        advanceHourScreen.setNb_passengers(nb_passengers);
 
                         advanceHourScreen.main();
-
-                        advanceHourScreen.setTime(hour + 1);
 
                         break;
 
 
                     case 2:
-
-                        System.out.println("\nWaitings Planes\n");
 
                         WaitingPlanes waitingPlanes = new WaitingPlanes();
                         waitingPlanes.main();
@@ -115,8 +105,6 @@ public class Main {
                         break;
 
                     case 3:
-
-                        System.out.println("\nRunway Menu\n");
 
                         RunwayMenu runwayMenu = new RunwayMenu();
                         runwayMenu.main();
@@ -131,9 +119,6 @@ public class Main {
                         System.out.println("\nIncorrect choice. Select again please.");
                 }
             }
-
         }
-
     }
-
 }
