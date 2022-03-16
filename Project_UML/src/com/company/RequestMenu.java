@@ -337,7 +337,11 @@ public class RequestMenu {
                 }
             }
             else if (choice.equals("B")){
-
+                AdvanceHourScreen advanceHourScreen = new AdvanceHourScreen();
+                int passengers = advanceHourScreen.getNb_passengers();
+                passengers += 50;
+                advanceHourScreen.setNb_passengers(passengers);
+                test = true;
             }
         }
 
