@@ -83,6 +83,24 @@ public class RunwayMenu {
         return -1;
     }
 
+    public int[] runways_availability(){
+        int[] table = new int[2];
+        table[0] = -1;
+        table[1] = -1;
+        for (int i = 0; i < runway.length; i++){
+            if (runway[i] == null){
+                if (table[0] == -1){
+                    table[0] = i;
+                }
+                else if (table[1] == -1){
+                    table[1] = i;
+                    return table;
+                }
+            }
+        }
+        return table;
+    }
+
     public int empty_runway() {
         // Empties a runway
 

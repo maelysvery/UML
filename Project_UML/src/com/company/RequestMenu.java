@@ -375,7 +375,7 @@ public class RequestMenu {
                 }
                 else{
                     Plane plane = new Plane(10);
-                    System.out.println("Landing on the runway number " + (freeRunways + 1));
+                    System.out.println("The runway number " + (freeRunways + 1) + " will be blocked for 8 hours.");
                     runwayMenu.addPlane(freeRunways, plane);
                     test = true;
                 }
