@@ -84,12 +84,10 @@ public class RequestMenu {
                     test = true;
                 }
             }
-
             else if (choice.equals("B")){
                 test = true;
             }
         }
-
         System.out.println("\n");
     }
 
