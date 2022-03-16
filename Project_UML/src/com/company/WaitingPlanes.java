@@ -108,4 +108,11 @@ public class WaitingPlanes {
         }
         waitingPlanes = tempWaitingPlanes;
     }
+
+    public void removeFuel(int hour){
+        for (Plane waitingPlane : waitingPlanes)
+        {
+            waitingPlane.setFuel_left(waitingPlane.getFuel_left() - hour);
+        }
+    }
 }

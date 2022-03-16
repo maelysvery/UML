@@ -5,8 +5,6 @@ import java.util.Scanner;
 
 public class RequestMenu {
 
-
-
     public void requests(){
 
         Random random1 = new Random();
