@@ -102,8 +102,33 @@ public class RequestMenu {
         System.out.println("Option A : Allow landing");
         System.out.println("Option B : Place on standby\n");
 
-        System.out.print("Enter your choice (A or B) : ");
-        String choice = scanner.nextLine();
+        RunwayMenu runwayMenu = new RunwayMenu();
+        WaitingPlanes waitingPlanes = new WaitingPlanes();
+
+        boolean test = false;
+
+        while(!test){
+
+            System.out.print("Enter your choice (A or B) : ");
+            String choice = scanner.nextLine();
+
+            if (choice.equals("A")) {
+                int freeRunways = runwayMenu.runway_availability();
+                if(freeRunways == -1){
+                    System.out.println("There is no empty runway");
+                }
+                else{
+                    System.out.println("Landing on the runway number " + (freeRunways + 1));
+                    runwayMenu.addPlane(freeRunways, plane);
+                    test = true;
+                }
+            }
+            else if (choice.equals("B")){
+                System.out.println("Adding to waiting planes");
+                waitingPlanes.addWaitingPlane(plane);
+                test = true;
+            }
+        }
 
         System.out.println("\n");
 
@@ -139,8 +164,33 @@ public class RequestMenu {
         System.out.println("Option A : Allow landing");
         System.out.println("Option B : Place on standby\n");
 
-        System.out.print("Enter your choice (A or B) : ");
-        String choice = scanner.nextLine();
+        RunwayMenu runwayMenu = new RunwayMenu();
+        WaitingPlanes waitingPlanes = new WaitingPlanes();
+
+        boolean test = false;
+
+        while(!test){
+
+            System.out.print("Enter your choice (A or B) : ");
+            String choice = scanner.nextLine();
+
+            if (choice.equals("A")) {
+                int freeRunways = runwayMenu.runway_availability();
+                if(freeRunways == -1){
+                    System.out.println("There is no empty runway");
+                }
+                else{
+                    System.out.println("Landing on the runway number " + (freeRunways + 1));
+                    runwayMenu.addPlane(freeRunways, plane);
+                    test = true;
+                }
+            }
+            else if (choice.equals("B")){
+                System.out.println("Adding to waiting planes");
+                waitingPlanes.addWaitingPlane(plane);
+                test = true;
+            }
+        }
 
         System.out.println("\n");
 
