@@ -1,53 +1,25 @@
 package com.company;
 
-
 import java.util.Scanner;
 
 
 public class RunwayMenu {
 
-    public static Plane [] runway = new Plane[8];
-    public String choice;
-    public int number_runways = 8;
+    public static void main(){
 
-    public Plane [] getRunway() {
-        return runway;
-    }
+        String [] name = new String[8];
+        int [] time = new int[8];
+        String choice;
 
-    public void addPlane(int i, Plane plane)
-    {
-        runway[i] = plane;
-    }
+        System.out.println("8 runways\n");
 
-    public String getChoice() {
-        return choice;
-    }
+        System.out.println("Row | Name of occupant | Occupied time remaining\n");
 
-    public void setChoice(String choice) {
-        this.choice = choice;
-    }
+        for (int i = 0; i < 8; i++){
 
-    public void main(){
-
-        System.out.println("\nRunway Menu\n");
-
-        System.out.println(number_runways + " runways\n");
-
-        System.out.println("|      Row        |      Name of occupant   |   Occupied time remaining | \n");
-
-        for (int i = 0; i < runway.length; i++){
-
-            System.out.print("        " +(i+1));
-
-            System.out.print("\t\t\t" + runway[i] + "        ");
-
-
-
-            System.out.println();
+            System.out.print(i + "\n" + "\t\t\t" + name[i] + "                 " + time[i] + "\n");
 
         }
-
-        System.out.println();
         
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nDo you want to return to the Main Menu ? (yes or no) ");
