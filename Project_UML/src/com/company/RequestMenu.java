@@ -313,8 +313,13 @@ public class RequestMenu {
         System.out.println("Option A : Let them land");
         System.out.println("Option B : Refuse them\n");
 
-        System.out.print("Enter your choice (A or B) : ");
-        String choice = scanner.nextLine();
+        boolean test = false;
+        
+        while(!test) 
+        {
+            System.out.print("Enter your choice (A or B) : ");
+            String choice = scanner.nextLine();
+        }
 
         System.out.println("\n");
 
@@ -331,8 +336,13 @@ public class RequestMenu {
         System.out.println("Option B : Get police involved");
         System.out.println("Option C : Let the planes land anyways\n");
 
-        System.out.print("Enter your choice (A, B or C) : ");
-        String choice = scanner.nextLine();
+        boolean test = false;
+        
+        while(!test) 
+        {
+            System.out.print("Enter your choice (A or B) : ");
+            String choice = scanner.nextLine();
+        }
 
         System.out.println("\n");
 
@@ -348,8 +358,13 @@ public class RequestMenu {
         System.out.println("Option A : Lockdown the runway");
         System.out.println("Option B : Let the man go\n");
 
-        System.out.print("Enter your choice (A or B) : ");
-        String choice = scanner.nextLine();
+        boolean test = false;
+        
+        while(!test) 
+        {
+            System.out.print("Enter your choice (A or B) : ");
+            String choice = scanner.nextLine();
+        }
 
         System.out.println("\n");
 
