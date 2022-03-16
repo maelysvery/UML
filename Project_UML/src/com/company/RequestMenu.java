@@ -269,7 +269,7 @@ public class RequestMenu {
                 }
                 else
                 {
-                    RunwayMenu.removeWaitingTime(2);
+                    RunwayMenu.removeWaitingTime(-2);
                     test = true;
                 }
             }
