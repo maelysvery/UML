@@ -134,7 +134,7 @@ public class RequestMenu {
 
     }
 
-   public void request3(){
+    public void request3(){
 
         Scanner scanner =  new Scanner(System.in);
 
@@ -169,9 +169,18 @@ public class RequestMenu {
             else if (choice.equals("B")){
                 AdvanceHourScreen advanceHourScreen = new AdvanceHourScreen();
                 int passengers = advanceHourScreen.getNb_passengers();
-                passengers = passengers - 100;
+                
+                if(passengers - 100 < 0){
+                    passengers = 0;
+                }
+                
+                else{
+                    passengers = passengers - 100;
+                }
+
                 advanceHourScreen.setNb_passengers(passengers);
                 test = true;
+               
             }
 
             else if (choice.equals("C")){
@@ -408,7 +417,7 @@ public class RequestMenu {
 
     }
 
-    public void request8(){
+   public void request8(){
 
         Scanner scanner =  new Scanner(System.in);
 
@@ -418,15 +427,44 @@ public class RequestMenu {
         System.out.println("Option A : Lockdown the runway");
         System.out.println("Option B : Let the man go\n");
 
+        RunwayMenu runwayMenu = new RunwayMenu();
+        WaitingPlanes waitingPlanes = new WaitingPlanes();
+
         boolean test = false;
 
-        while(!test)
-        {
+        while(!test){
+
             System.out.print("Enter your choice (A or B) : ");
             String choice = scanner.nextLine();
+
+            if (choice.equals("A")) {
+                int freeRunways = runwayMenu.runway_availability();
+                if(freeRunways == -1){
+                    System.out.println("There is no empty runway");
+                }
+                else{
+                    System.out.println("The runway number " + (freeRunways + 1) + " is free");
+                    Plane plane = new Plane(8);
+                    System.out.println("The runway number " + (freeRunways + 1) + " will be blocked for 8 hours.");
+                    runwayMenu.addPlane(freeRunways, plane);
+                    test = true;
+                }
+            }
+            else if (choice.equals("B")){
+
+                Plane plane = waitingPlanes.randomWaitingPlane();
+                waitingPlanes.deleteWaitingPlane(plane);
+
+                AdvanceHourScreen advanceHourScreen = new AdvanceHourScreen();
+                int passengers = advanceHourScreen.getNb_passengers();
+                passengers += 100;
+                advanceHourScreen.setNb_passengers(passengers);
+                test = true;
+            }
         }
 
         System.out.println("\n");
+
 
     }
 }
