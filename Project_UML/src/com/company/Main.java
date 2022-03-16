@@ -9,7 +9,6 @@ public class Main {
 
         int hour = 0;
         int nb_passengers = 0;
-        int nb_requests = 0;
         int choice1 = 0;
         int again = 1;
         int random_number = 0;
