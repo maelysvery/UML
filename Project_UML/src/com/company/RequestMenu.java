@@ -142,8 +142,41 @@ public class RequestMenu {
         System.out.println("Option B : Rescue team");
         System.out.println("Option C : Air refueling\n");
 
-        System.out.print("Enter your choice (A, B or C) : ");
-        String choice = scanner.nextLine();
+        System.out.println("\n");
+
+        RunwayMenu runwayMenu = new RunwayMenu();
+       
+        boolean test = false;
+
+        while(!test){
+
+            System.out.print("Enter your choice (A, B or C) : ");
+            String choice = scanner.nextLine();
+
+            if (choice.equals("A")) {
+                int randomRunway = runwayMenu.empty_runway();
+                if(randomRunway == -1){
+                    System.out.println("There is no full runway");
+                }
+                else{
+                    System.out.println("Empties the runway number " + (randomRunway + 1));
+                    test = true;
+                }
+            }
+            
+            else if (choice.equals("B")){
+                AdvanceHourScreen advanceHourScreen = new AdvanceHourScreen();
+                int passengers = advanceHourScreen.getNb_passengers();
+                passengers = passengers - 100;
+                advanceHourScreen.setNb_passengers(passengers);
+                test = true;
+            }
+
+            else if (choice.equals("C")){
+                System.out.println();
+
+            }
+        }
 
         System.out.println("\n");
 
@@ -262,3 +295,4 @@ public class RequestMenu {
 
     }
 }
+

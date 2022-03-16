@@ -7,19 +7,23 @@ public class AdvanceHourScreen {
 
     public int time = 0;
     public int nb_requests = 0;
-    public int nb_passengers = 0;
+    public static int nb_passengers;
+
+    public AdvanceHourScreen(){
+
+    }
 
     public AdvanceHourScreen(int time, int nb_requests, int nb_passengers){
 
         this.time = time;
         this.nb_requests = nb_requests;
-        this.nb_passengers = nb_passengers;
+        nb_passengers = nb_passengers;
     }
 
     public AdvanceHourScreen(int time, int nb_passengers){
 
         this.time = time;
-        this.nb_passengers = nb_passengers;
+        nb_passengers = nb_passengers;
 
         Random number = new Random();
         int min = 1;
@@ -47,9 +51,7 @@ public class AdvanceHourScreen {
         return nb_passengers;
     }
 
-    public void setNb_passengers(int nb_passengers) {
-        this.nb_passengers = nb_passengers;
-    }
+    public void setNb_passengers(int nb_passengers) {this.nb_passengers = nb_passengers;}
 
     public void main(){
 

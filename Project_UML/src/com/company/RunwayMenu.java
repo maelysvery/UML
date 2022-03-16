@@ -30,8 +30,6 @@ public class RunwayMenu {
 
     public void main(){
 
-        System.out.println("\nRunway Menu\n");
-
         System.out.println(number_runways + " runways\n");
 
         System.out.println("|      Row        |      Name of occupant   |   Occupied time remaining | \n");
@@ -85,6 +83,19 @@ public class RunwayMenu {
         return -1;
     }
 
+    public int empty_runway() {
+        // Empties a runway
+
+        for (int i = 0; i < runway.length; i++) {
+
+            if(runway[i] != null) {
+                runway[i] = null;
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public void removeWaitingTime(int hour){
         for (Plane runwayPlane : runway)
         {
@@ -98,3 +109,4 @@ public class RunwayMenu {
     }
 
 }
+
