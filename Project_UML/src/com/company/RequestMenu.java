@@ -73,14 +73,14 @@ public class RequestMenu {
             String choice = scanner.nextLine();
 
             if (choice.equals("A")) {
-                int runway = waitingPlanes.runway_availability();
-                if(runway == 1){
+                int freeRunways = waitingPlanes.runway_availability();
+                if(freeRunways == -1){
                     System.out.println("There is no empty runway");
                 }
                 else{
                     RunwayMenu runwayMenu = new RunwayMenu();
-                    System.out.println("The runway " + (runway + 1) + " is empty");
-                    runwayMenu.addPlane(runway, plane);
+                    System.out.println("The runway " + (freeRunways + 1) + " is empty");
+                    runwayMenu.addPlane(freeRunways, plane);
                     test = true;
                 }
             }

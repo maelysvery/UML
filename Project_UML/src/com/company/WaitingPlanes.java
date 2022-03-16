@@ -83,13 +83,12 @@ public class WaitingPlanes {
         for (int i = 0; i < runway.length; i++) {
 
             if(runway[i] == null) {
-
                 return i;
             }
 
 
         }
 
-        return 1;
+        return -1;
     }
 }

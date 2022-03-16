@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class RunwayMenu {
 
-    public Plane [] runway = new Plane[8];
+    public static Plane [] runway = new Plane[8];
     public String choice;
     public int number_runways = 8;
 
@@ -14,13 +14,9 @@ public class RunwayMenu {
         return runway;
     }
 
-    public void setRunway(Plane [] runway) {
-        this.runway = runway;
-    }
-
     public void addPlane(int i, Plane plane)
     {
-        this.runway[i] = plane;
+        runway[i] = plane;
     }
 
     public String getChoice() {
