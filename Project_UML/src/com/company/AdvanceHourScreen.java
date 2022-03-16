@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class AdvanceHourScreen {
@@ -13,6 +14,17 @@ public class AdvanceHourScreen {
         this.time = time;
         this.nb_requests = nb_requests;
         this.nb_passengers = nb_passengers;
+    }
+
+    public AdvanceHourScreen(int time, int nb_passengers){
+
+        this.time = time;
+        this.nb_passengers = nb_passengers;
+
+        Random number = new Random();
+        int min = 1;
+        int max = 3;
+        this.nb_requests = number.nextInt(max - min + 1) + min;
     }
 
     public int getTime() {
@@ -48,7 +60,12 @@ public class AdvanceHourScreen {
         System.out.println("Current time : " + (time));
 
         RequestMenu requestMenu = new RequestMenu();
-        nb_requests = requestMenu.getRandom_number();
+
+        Random number = new Random();
+        int min = 1;
+        int max = 3;
+        nb_requests = number.nextInt(max - min + 1) + min;
+
         System.out.println("Number of new requests coming in : " + nb_requests);
 
         System.out.println("Number of passengers dead from waiting planes crashing : " + nb_passengers);

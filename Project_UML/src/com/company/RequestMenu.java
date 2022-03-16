@@ -5,16 +5,12 @@ import java.util.Scanner;
 
 public class RequestMenu {
 
-    private int random_number;
 
-    public int getRandom_number() {
-        return random_number;
-    }
 
     public void requests(){
 
         Random random1 = new Random();
-        int game1 = random1.nextInt(100);
+        int game1 = random1.nextInt(99) + 1;
 
         if(game1 < 40){
             request1();
@@ -63,6 +59,7 @@ public class RequestMenu {
         System.out.println("Option A : Allow landing");
         System.out.println("Option B : Place on standby\n");
 
+        RunwayMenu runwayMenu = new RunwayMenu();
         WaitingPlanes waitingPlanes = new WaitingPlanes();
 
         boolean test = false;
@@ -73,18 +70,19 @@ public class RequestMenu {
             String choice = scanner.nextLine();
 
             if (choice.equals("A")) {
-                int freeRunways = waitingPlanes.runway_availability();
+                int freeRunways = runwayMenu.runway_availability();
                 if(freeRunways == -1){
                     System.out.println("There is no empty runway");
                 }
                 else{
-                    RunwayMenu runwayMenu = new RunwayMenu();
-                    System.out.println("The runway " + (freeRunways + 1) + " is empty");
+                    System.out.println("Landing on the runway number " + (freeRunways + 1));
                     runwayMenu.addPlane(freeRunways, plane);
                     test = true;
                 }
             }
             else if (choice.equals("B")){
+                System.out.println("Adding to waiting planes");
+                waitingPlanes.addWaitingPlane(plane);
                 test = true;
             }
         }

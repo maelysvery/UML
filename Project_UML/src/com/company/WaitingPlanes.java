@@ -21,7 +21,7 @@ public class WaitingPlanes {
 
             System.out.print((i+1));
 
-            System.out.print("\t\t" + waitingPlanes[i].getName() + " " + waitingPlanes[i].getFuel_left());
+            System.out.print("\t\t" + waitingPlanes[i].getName() + "\t\t" + waitingPlanes[i].getFuel_left());
 
             System.out.println();
 
@@ -40,14 +40,17 @@ public class WaitingPlanes {
             System.out.print("Enter the plane name : ");
             String selected_plane = sc.nextLine();
 
-            int freeRunway = runway_availability();
+            RunwayMenu runway = new RunwayMenu();
+
+            int freeRunway = runway.runway_availability();
             if(freeRunway == -1){
                 System.out.println("No runaway available.");
             }
             else{
                 System.out.println("Landing " + selected_plane + " on the runway n° " + (freeRunway + 1));
-                RunwayMenu runway = new RunwayMenu();
-                runway.addPlane(freeRunway, findPlane(selected_plane));
+                Plane planeToLand = findPlane(selected_plane);
+                runway.addPlane(freeRunway, planeToLand);
+                deleteWaitingPlane(planeToLand);
             }
         }
     }
@@ -62,22 +65,47 @@ public class WaitingPlanes {
         return null;
     }
 
-    public int runway_availability() {
-        // Open or close runway ?
-        RunwayMenu runwayMenu = new RunwayMenu();
-        Plane [] runway = runwayMenu.getRunway();
-
-        for (int i = 0; i < runway.length; i++) {
-
-            if(runway[i] == null) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
     public void addWaitingPlane(Plane plane)
     {
+        if (waitingPlanes == null)
+        {
+            waitingPlanes = new Plane[1];
+            waitingPlanes[0] = plane;
+        }
+        else
+        {
+            int length = waitingPlanes.length;
+            Plane[] tempWaitingPlanes = new Plane[length + 1];
+            for (int i = 0 ; i < length ; i++)
+            {
+                tempWaitingPlanes[i] = waitingPlanes[i];
+            }
+            tempWaitingPlanes[length] = plane;
 
+            waitingPlanes = tempWaitingPlanes;
+        }
+    }
+
+    public void deleteWaitingPlane(Plane planeToLand)
+    {
+        int length = waitingPlanes.length;
+        int position = 0;
+        for (int i = 0 ; i < length ; i++)
+        {
+            if (planeToLand.equals(waitingPlanes[i]))
+            {
+                position = i;
+            }
+        }
+        Plane[] tempWaitingPlanes = new Plane[length - 1];
+        for (int i = 0 ; i < position ; i++)
+        {
+            tempWaitingPlanes[i] = waitingPlanes[i];
+        }
+        for (int i = position + 1 ; i < length ; i++)
+        {
+            tempWaitingPlanes[i - 1] = waitingPlanes[i];
+        }
+        waitingPlanes = tempWaitingPlanes;
     }
 }

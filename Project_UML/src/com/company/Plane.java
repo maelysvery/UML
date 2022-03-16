@@ -77,6 +77,6 @@ public class Plane {
     @Override
     public String toString()
     {
-        return (name + "        " + runway_time);
+        return (name + "\t\t\t\t\t        " + runway_time);
     }
 }

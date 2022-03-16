@@ -39,12 +39,9 @@ public class RunwayMenu {
 
             System.out.print("        " +(i+1));
 
-            System.out.print("\t\t\t" + runway[i] + "        ");
-
-
+            System.out.print("\t\t\t\t\t" + runway[i]);
 
             System.out.println();
-
         }
 
         System.out.println();
@@ -73,6 +70,18 @@ public class RunwayMenu {
         }
         
 
+    }
+
+    public int runway_availability() {
+        // Open or close runway ?
+
+        for (int i = 0; i < runway.length; i++) {
+
+            if(runway[i] == null) {
+                return i;
+            }
+        }
+        return -1;
     }
 
 }

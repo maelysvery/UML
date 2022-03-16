@@ -24,19 +24,17 @@ public class Main {
         String ANSI_RED = "\u001B[31m";
         String ANSI_GREEN = "\u001B[32m	";
 
+        AdvanceHourScreen advanceHourScreen = new AdvanceHourScreen(hour, nb_passengers);
 
         while (again == 1){
 
-            Random number = new Random();
-            int min = 1;
-            int max = 3;
-            random_number = number.nextInt(max - min + 1) + min;
+            random_number = advanceHourScreen.getNb_requests();
 
             System.out.println(ANSI_RESET+"\n------------------------------------------------");
             System.out.print("\nNumber of requests received : " + random_number + "\n");
 
             Scanner scanner = new Scanner(System.in);
-            AdvanceHourScreen advanceHourScreen = new AdvanceHourScreen(hour, nb_requests, nb_passengers);
+
 
             while(random_number != 0){
                 hour = advanceHourScreen.getTime();
@@ -110,19 +108,7 @@ public class Main {
                 System.out.println("3) Go to Runway Menu");
                 System.out.println("4) Quit");
                 System.out.print("\nEnter your choice : ");
-                while (choice1 !=1 && choice1 !=2 && choice1 != 3 && choice1 != 4){
-                    System.out.println(ANSI_RED+"----------------");
-                    System.out.println(ANSI_RED+"ERROR !");
-                    System.out.println(ANSI_RED+"----------------");
-                    System.out.println(ANSI_RESET+"\n------------------------------------------------\n");
-                    System.out.println("1) Advance to next hour");
-                    System.out.println("2) Go to Waiting Planes Menu");
-                    System.out.println("3) Go to Runway Menu");
-                    System.out.println("4) Quit");
-                    System.out.print("\nEnter your choice : ");
-                    choice1 = scanner.nextInt();
-                }
-
+                choice1 = scanner.nextInt();
 
                 switch (choice1){
                     case 1:
