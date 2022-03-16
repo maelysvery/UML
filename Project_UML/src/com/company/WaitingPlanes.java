@@ -115,4 +115,16 @@ public class WaitingPlanes {
             waitingPlane.setFuel_left(waitingPlane.getFuel_left() - hour);
         }
     }
+    
+     public Plane randomWaitingPlane(){
+
+        int random = new Random().nextInt(waitingPlanes.length - 1);
+
+        while (waitingPlanes[random] == null)
+        {
+            random = new Random().nextInt(waitingPlanes.length - 1);
+        }
+
+        return (waitingPlanes[random]);
+    }
 }
