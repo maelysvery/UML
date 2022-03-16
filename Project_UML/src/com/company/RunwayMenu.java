@@ -124,5 +124,16 @@ public class RunwayMenu {
     public static void removeRunway(){
         runway = Arrays.copyOfRange(runway, 0, runway.length-2);
     }
+
+    public static void removePlane(Plane plane)
+    {
+        for (int i = 0 ; i < runway.length ; i ++)
+        {
+            if (plane.equals(runway[i]))
+            {
+                runway[i] = null;
+            }
+        }
+    }
 }
 

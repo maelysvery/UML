@@ -55,6 +55,36 @@ public class AdvanceHourScreen {
 
     public void main(){
 
+        // Advancing hour for waiting planes
+
+        WaitingPlanes waitingPlanes = new WaitingPlanes();
+        waitingPlanes.removeFuel(1);
+
+        Plane[] wPlanes = waitingPlanes.getPlane();
+        for (Plane plane : wPlanes)
+        {
+            if (plane.getFuel_left() <= 0)
+            {
+                nb_passengers += plane.getPassengers();
+                waitingPlanes.deleteWaitingPlane(plane);
+            }
+        }
+
+        // Advancing hour for planes on the runway
+
+        RunwayMenu runwayMenu = new RunwayMenu();
+        RunwayMenu.removeWaitingTime(1);
+
+        Plane[] rPlanes = runwayMenu.getRunway();
+        for (Plane plane : rPlanes)
+        {
+            if (plane.getRunway_time() <= 0)
+            {
+                RunwayMenu.removePlane(plane);
+            }
+        }
+
+
         System.out.println("\nNext hour\n");
 
         Scanner scanner = new Scanner(System.in);

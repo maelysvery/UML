@@ -86,13 +86,13 @@ public class WaitingPlanes {
         }
     }
 
-    public void deleteWaitingPlane(Plane planeToLand)
+    public void deleteWaitingPlane(Plane planeToDelete)
     {
         int length = waitingPlanes.length;
         int position = 0;
         for (int i = 0 ; i < length ; i++)
         {
-            if (planeToLand.equals(waitingPlanes[i]))
+            if (planeToDelete.equals(waitingPlanes[i]))
             {
                 position = i;
             }
