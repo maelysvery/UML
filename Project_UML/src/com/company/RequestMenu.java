@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class RequestMenu {
 
+
+
     public void requests(){
 
         Random random1 = new Random();
@@ -145,7 +147,7 @@ public class RequestMenu {
         System.out.println("\n");
 
         RunwayMenu runwayMenu = new RunwayMenu();
-       
+
         boolean test = false;
 
         while(!test){
@@ -163,7 +165,7 @@ public class RequestMenu {
                     test = true;
                 }
             }
-            
+
             else if (choice.equals("B")){
                 AdvanceHourScreen advanceHourScreen = new AdvanceHourScreen();
                 int passengers = advanceHourScreen.getNb_passengers();
@@ -237,8 +239,51 @@ public class RequestMenu {
         System.out.println("Option B : Icy run ways");
         System.out.println("Option C : Ice storm\n");
 
-        System.out.print("Enter your choice (A,B or C) : ");
-        String choice = scanner.nextLine();
+        RunwayMenu runwayMenu = new RunwayMenu();
+
+        boolean test = false;
+
+        while(!test){
+
+            System.out.print("Enter your choice (A, B or C) : ");
+            String choice = scanner.nextLine();
+
+            if (choice.equals("A")) {
+                WaitingPlanes waitingPlanes = new WaitingPlanes();
+                if (waitingPlanes.getPlane() == null)
+                {
+                    System.out.println("There is no waiting planes.");
+                }
+                else
+                {
+                    waitingPlanes.removeFuel(1);
+                    test = true;
+                }
+
+            }
+            else if (choice.equals("B")){
+                WaitingPlanes waitingPlanes = new WaitingPlanes();
+                if (waitingPlanes.getPlane() == null)
+                {
+                    System.out.println("There is no waiting planes.");
+                }
+                else
+                {
+                    RunwayMenu.removeWaitingTime(-2);
+                    test = true;
+                }
+            }
+            else if (choice.equals("C")){
+                int freeRunways = runwayMenu.runway_availability();
+                if(freeRunways == -1){
+                    System.out.println("There is no empty runway");
+                }
+                else{
+                    RunwayMenu.removeRunway();
+                    test = true;
+                }
+            }
+        }
 
         System.out.println("\n");
 
@@ -295,4 +340,5 @@ public class RequestMenu {
 
     }
 }
+
 
