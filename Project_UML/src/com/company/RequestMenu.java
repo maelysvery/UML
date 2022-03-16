@@ -134,7 +134,7 @@ public class RequestMenu {
 
     }
 
-    public void request3(){
+   public void request3(){
 
         Scanner scanner =  new Scanner(System.in);
 
@@ -175,7 +175,22 @@ public class RequestMenu {
             }
 
             else if (choice.equals("C")){
+                WaitingPlanes waitingPlanes = new WaitingPlanes();
+
+
+                if(waitingPlanes.getPlane() == null){
+
+                    System.out.println("There is no plane in air");
+                }
+
+                else{
+                    System.out.println("A plane is in air");
+                    waitingPlanes.removeFuel(-2);
+                    test = true;
+                }
+
                 System.out.println();
+
 
             }
         }
@@ -183,7 +198,7 @@ public class RequestMenu {
         System.out.println("\n");
 
     }
-
+    
     public void request4(){
 
         Scanner scanner =  new Scanner(System.in);
