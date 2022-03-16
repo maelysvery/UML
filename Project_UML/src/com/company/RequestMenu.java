@@ -204,7 +204,7 @@ public class RequestMenu {
         Scanner scanner =  new Scanner(System.in);
 
         Plane plane = new Plane();
-        plane.setEmergencyLanding();
+        plane.setJumboJet();
 
         System.out.println("Request 4 : Jumbo jet");
         System.out.println("Description : A large aircraft carrying " + plane.getPassengers() + " passengers with " + plane.getFuel_left() +
