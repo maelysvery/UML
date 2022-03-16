@@ -198,7 +198,7 @@ public class RequestMenu {
         System.out.println("\n");
 
     }
-    
+
     public void request4(){
 
         Scanner scanner =  new Scanner(System.in);
@@ -308,17 +308,37 @@ public class RequestMenu {
 
         Scanner scanner =  new Scanner(System.in);
 
+        Plane plane = new Plane();
+        plane.setSnakePlane();
+
         System.out.println("Request 6 : Snakes on the plane");
         System.out.println("Description : A pilot is reporting that their plane is being overrun by snakes. They want to land at your airport.");
         System.out.println("Option A : Let them land");
         System.out.println("Option B : Refuse them\n");
 
+        RunwayMenu runwayMenu = new RunwayMenu();
         boolean test = false;
-        
-        while(!test) 
+
+        while(!test)
         {
             System.out.print("Enter your choice (A or B) : ");
             String choice = scanner.nextLine();
+
+            if (choice.equals("A"))
+            {
+                int freeRunways = runwayMenu.runway_availability();
+                if(freeRunways == -1){
+                    System.out.println("There is no empty runway");
+                }
+                else{
+                    System.out.println("Landing on the runway number " + (freeRunways + 1));
+                    runwayMenu.addPlane(freeRunways, plane);
+                    test = true;
+                }
+            }
+            else if (choice.equals("B")){
+
+            }
         }
 
         System.out.println("\n");
@@ -337,8 +357,8 @@ public class RequestMenu {
         System.out.println("Option C : Let the planes land anyways\n");
 
         boolean test = false;
-        
-        while(!test) 
+
+        while(!test)
         {
             System.out.print("Enter your choice (A or B) : ");
             String choice = scanner.nextLine();
@@ -359,8 +379,8 @@ public class RequestMenu {
         System.out.println("Option B : Let the man go\n");
 
         boolean test = false;
-        
-        while(!test) 
+
+        while(!test)
         {
             System.out.print("Enter your choice (A or B) : ");
             String choice = scanner.nextLine();

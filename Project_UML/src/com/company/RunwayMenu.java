@@ -106,18 +106,5 @@ public class RunwayMenu {
     public static void removeRunway(){
         runway = Arrays.copyOfRange(runway, 0, runway.length-2);
     }
-
-    public void removeWaitingTime(int hour){
-        for (Plane runwayPlane : runway)
-        {
-            runwayPlane.setRunway_time(runwayPlane.getRunway_time() - hour);
-        }
-    }
-
-    public void removeRunway()
-    {
-        runway = Arrays.copyOfRange(runway, 0, runway.length-2);
-    }
-
 }
 

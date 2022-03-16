@@ -66,6 +66,12 @@ public class Plane {
 
     }
 
+    public void setSnakePlane(){
+        this.fuel_left = 0;
+        this.runway_time = 7;
+        this.passengers = 50;
+    }
+
     public void setJumboJet(){
 
         this.fuel_left = random(4, 6);
