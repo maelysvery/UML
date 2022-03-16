@@ -5,42 +5,79 @@ import java.util.Scanner;
 
 public class WaitingPlanes {
 
-    public static void main(){
+    public static Plane[] waitingPlanes;
 
-        String [] plane_name = new String[8];
-        double [] fuel_left = new double[8];
-        String choice;
+    public Plane[] getPlane() {
+        return waitingPlanes;
+    }
+
+    public void main(){
+
+        System.out.println("\nWaitings Planes\n");
 
         System.out.println("Row | Plane name | Fuel left\n");
 
-        for (int i = 0; i < 8; i++){
+        for (int i = 0; i < waitingPlanes.length; i++){
 
-            System.out.print((i+1) + "\n" + "\t\t" + plane_name[i] + "     " + fuel_left[i] + "\n");
+            System.out.print((i+1));
+
+            System.out.print("\t\t" + waitingPlanes[i].getName() + " " + waitingPlanes[i].getFuel_left());
+
+            System.out.println();
 
         }
 
+        System.out.println();
+
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("\nDo you want to return to select a plane to land (1) or return to the Main Menu (2) ? ");
+        System.out.print("\nDo you want to select a plane to land (1) or return to the Main Menu (2) ? ");
         int option = scanner.nextInt();
 
         if(option == 1){
 
-            Random plane_land = new Random();
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter the plane name : ");
+            String selected_plane = sc.nextLine();
 
-            int min = 0;
-            int max = 7;
-            int runway = plane_land.nextInt(max + min);
-
+            int freeRunway = runway_availability();
+            if(freeRunway == -1){
+                System.out.println("No runaway available.");
+            }
+            else{
+                System.out.println("Landing " + selected_plane + " on the runway n° " + (freeRunway + 1));
+                RunwayMenu runway = new RunwayMenu();
+                runway.addPlane(freeRunway, findPlane(selected_plane));
+            }
         }
+    }
 
-        else if(option == 2){
-
-            String[] args = new String[0];
-
-            Main.main(args);
-
-
+    public Plane findPlane(String planeName)
+    {
+        for (Plane waitingPlane : waitingPlanes) {
+            if (waitingPlane.getName().equals(planeName)) {
+                return waitingPlane;
+            }
         }
+        return null;
+    }
+
+    public int runway_availability() {
+        // Open or close runway ?
+        RunwayMenu runwayMenu = new RunwayMenu();
+        Plane [] runway = runwayMenu.getRunway();
+
+        for (int i = 0; i < runway.length; i++) {
+
+            if(runway[i] == null) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void addWaitingPlane(Plane plane)
+    {
+
     }
 }
