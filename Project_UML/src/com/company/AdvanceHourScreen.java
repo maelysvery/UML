@@ -6,18 +6,18 @@ import java.util.Scanner;
 public class AdvanceHourScreen {
 
     public int time = 0;
-    public int nb_requests = 0;
+    public static int nb_requests = 0;
     public static int nb_passengers;
 
     public AdvanceHourScreen(){
 
     }
 
-    public AdvanceHourScreen(int time, int nb_requests, int nb_passengers){
+    public AdvanceHourScreen(int time, int nbRequests, int nbPassengers){
 
         this.time = time;
-        this.nb_requests = nb_requests;
-        nb_passengers = nb_passengers;
+        nb_requests = nbRequests;
+        nb_passengers = nbPassengers;
     }
 
     public AdvanceHourScreen(int time, int nb_passengers){
@@ -61,12 +61,15 @@ public class AdvanceHourScreen {
         waitingPlanes.removeFuel(1);
 
         Plane[] wPlanes = waitingPlanes.getPlane();
-        for (Plane plane : wPlanes)
+        if (wPlanes != null)
         {
-            if (plane.getFuel_left() <= 0)
+            for (Plane plane : wPlanes)
             {
-                nb_passengers += plane.getPassengers();
-                waitingPlanes.deleteWaitingPlane(plane);
+                if (plane.getFuel_left() <= 0)
+                {
+                    nb_passengers += plane.getPassengers();
+                    waitingPlanes.deleteWaitingPlane(plane);
+                }
             }
         }
 
@@ -78,9 +81,12 @@ public class AdvanceHourScreen {
         Plane[] rPlanes = runwayMenu.getRunway();
         for (Plane plane : rPlanes)
         {
-            if (plane.getRunway_time() <= 0)
+            if (plane != null)
             {
-                RunwayMenu.removePlane(plane);
+                if (plane.getRunway_time() <= 0)
+                {
+                    RunwayMenu.removePlane(plane);
+                }
             }
         }
 

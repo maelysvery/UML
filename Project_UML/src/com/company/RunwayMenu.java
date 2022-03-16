@@ -20,12 +20,12 @@ public class RunwayMenu {
         runway[i] = plane;
     }
 
-    public String getChoice() {
-        return choice;
+    public void setNumber_runways(int number_runways) {
+        this.number_runways = number_runways;
     }
 
-    public void setChoice(String choice) {
-        this.choice = choice;
+    public int getNumber_runways() {
+        return number_runways;
     }
 
     public void main(){
@@ -57,10 +57,8 @@ public class RunwayMenu {
         }
 
         if (choice.equalsIgnoreCase("yes")){
-            
-            String[] args = new String[0];
-            
-            Main.main(args);
+            AdvanceHourScreen advanceHourScreen = new AdvanceHourScreen();
+            advanceHourScreen.setNb_requests(advanceHourScreen.getNb_requests() + 1);
         }
 
         else if(choice.equalsIgnoreCase("no")){
@@ -117,12 +115,16 @@ public class RunwayMenu {
     public static void removeWaitingTime(int hour){
         for (Plane runwayPlane : runway)
         {
-            runwayPlane.setRunway_time(runwayPlane.getRunway_time() - hour);
+            if (runwayPlane != null)
+            {
+                runwayPlane.setRunway_time(runwayPlane.getRunway_time() - hour);
+            }
         }
     }
 
-    public static void removeRunway(){
-        runway = Arrays.copyOfRange(runway, 0, runway.length-2);
+    public void removeRunway(){
+        runway = Arrays.copyOfRange(runway, 0, runway.length-1);
+        setNumber_runways(getNumber_runways()-1);
     }
 
     public static void removePlane(Plane plane)

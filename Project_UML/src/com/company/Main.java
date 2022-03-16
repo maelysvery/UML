@@ -29,13 +29,14 @@ public class Main {
 
             random_number = advanceHourScreen.getNb_requests();
 
-            System.out.println(ANSI_RESET+"\n------------------------------------------------");
-            System.out.print("\nNumber of requests received : " + random_number + "\n");
-
             Scanner scanner = new Scanner(System.in);
 
 
             while(random_number != 0){
+
+                System.out.println(ANSI_RESET+"\n------------------------------------------------");
+                System.out.print("\nNumber of requests received : " + random_number + "\n");
+
                 hour = advanceHourScreen.getTime();
                 nb_passengers = advanceHourScreen.getNb_passengers();
                 System.out.println("\n\t\t\t\t\t\t" + "Hour : " + hour + ", Passengers killed : " + nb_passengers);

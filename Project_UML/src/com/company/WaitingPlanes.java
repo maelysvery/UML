@@ -17,14 +17,16 @@ public class WaitingPlanes {
 
         System.out.println("Row | Plane name | Fuel left\n");
 
-        for (int i = 0; i < waitingPlanes.length; i++){
+        if(waitingPlanes != null)
+        {
+            for (int i = 0; i < waitingPlanes.length; i++){
 
-            System.out.print((i+1));
+                System.out.print((i+1));
 
-            System.out.print("\t\t" + waitingPlanes[i].getName() + "\t\t" + waitingPlanes[i].getFuel_left());
+                System.out.print("\t\t" + waitingPlanes[i].getName() + "\t\t" + waitingPlanes[i].getFuel_left());
 
-            System.out.println();
-
+                System.out.println();
+            }
         }
 
         System.out.println();
@@ -110,14 +112,16 @@ public class WaitingPlanes {
     }
 
     public void removeFuel(int hour){
-        for (Plane waitingPlane : waitingPlanes)
+        if (waitingPlanes != null)
         {
-            waitingPlane.setFuel_left(waitingPlane.getFuel_left() - hour);
+            for (Plane waitingPlane : waitingPlanes)
+            {
+                waitingPlane.setFuel_left(waitingPlane.getFuel_left() - hour);
+            }
         }
     }
     
      public Plane randomWaitingPlane(){
-
         int random = new Random().nextInt(waitingPlanes.length - 1);
 
         while (waitingPlanes[random] == null)

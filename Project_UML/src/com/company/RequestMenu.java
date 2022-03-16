@@ -303,7 +303,7 @@ public class RequestMenu {
                     System.out.println("There is no empty runway");
                 }
                 else{
-                    RunwayMenu.removeRunway();
+                    runwayMenu.removeRunway();
                     test = true;
                 }
             }
