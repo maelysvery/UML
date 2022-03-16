@@ -360,12 +360,36 @@ public class RequestMenu {
         System.out.println("Option B : Get police involved");
         System.out.println("Option C : Let the planes land anyways\n");
 
+        RunwayMenu runwayMenu = new RunwayMenu();
         boolean test = false;
 
         while(!test)
         {
             System.out.print("Enter your choice (A or B) : ");
             String choice = scanner.nextLine();
+
+            if (choice.equals("A")){
+                int freeRunways = runwayMenu.runway_availability();
+                if(freeRunways == -1){
+                    System.out.println("There is no empty runway");
+                }
+                else{
+                    Plane plane = new Plane(10);
+                    System.out.println("Landing on the runway number " + (freeRunways + 1));
+                    runwayMenu.addPlane(freeRunways, plane);
+                    test = true;
+                }
+            }
+            else if (choice.equals("B")){
+
+            }
+            else if (choice.equals("C")){
+                AdvanceHourScreen advanceHourScreen = new AdvanceHourScreen();
+                int passengers = advanceHourScreen.getNb_passengers();
+                passengers += 100;
+                advanceHourScreen.setNb_passengers(passengers);
+                test = true;
+            }
         }
 
         System.out.println("\n");

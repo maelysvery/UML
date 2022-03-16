@@ -16,6 +16,14 @@ public class Plane {
         ID ++;
     }
 
+    public Plane(int runway_time){
+        this.fuel_left = 0;
+        this.passengers = 0;
+        this.runway_time = runway_time;
+        this.name = "Plane " + ID;
+        ID ++;
+    }
+
     public int getFuel_left() {
         return fuel_left;
     }
