@@ -1,6 +1,7 @@
 package com.company;
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -82,6 +83,18 @@ public class RunwayMenu {
             }
         }
         return -1;
+    }
+
+    public void removeWaitingTime(int hour){
+        for (Plane runwayPlane : runway)
+        {
+            runwayPlane.setRunway_time(runwayPlane.getRunway_time() - hour);
+        }
+    }
+
+    public void removeRunway()
+    {
+        runway = Arrays.copyOfRange(runway, 0, runway.length-2);
     }
 
 }
