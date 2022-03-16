@@ -375,13 +375,25 @@ public class RequestMenu {
                 }
                 else{
                     Plane plane = new Plane(10);
-                    System.out.println("The runway number " + (freeRunways + 1) + " will be blocked for 8 hours.");
+                    System.out.println("The runway number " + (freeRunways + 1) + " will be blocked for 10 hours.");
                     runwayMenu.addPlane(freeRunways, plane);
                     test = true;
                 }
             }
-            else if (choice.equals("B")){
-
+            else if (choice.equals("B")) {
+                int[] freeRunways = runwayMenu.runways_availability();
+                if (freeRunways[1] == -1)
+                {
+                    System.out.println("There is no empty runway");
+                }
+                else {
+                    Plane plane1 = new Plane(4);
+                    Plane plane2 = new Plane(4);
+                    System.out.println("The runways number " + freeRunways[0] + " and " + freeRunways[1] + " will be blocked for 4 hours.");
+                    runwayMenu.addPlane(freeRunways[0], plane1);
+                    runwayMenu.addPlane(freeRunways[1], plane2);
+                    test = true;
+                }
             }
             else if (choice.equals("C")){
                 AdvanceHourScreen advanceHourScreen = new AdvanceHourScreen();
