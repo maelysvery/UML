@@ -64,23 +64,31 @@ public class Main {
 
                 
                 while (choice1 !=1 && choice1 !=2 && choice1 != 3 && choice1 != 4){
-                    System.out.println(ANSI_RED+"----------------");
-                    System.out.println(ANSI_RED+"ERROR !");
-                    System.out.println(ANSI_RED+"----------------");
-                    System.out.println(ANSI_RESET+"\n------------------------------------------------\n");
-                    System.out.println(ANSI_RESET+"1) Go to Request Menu");
-                    System.out.println("2) Go to Waiting Planes Menu");
-                    System.out.println("3) Go to Runway Menu");
-                    System.out.println("4) Quit");
-                    System.out.print("\nEnter your choice : ");
+                    System.out.println(ANSI_RESET+"\n\n          ✈︎               ✈︎               ✈︎               ✈︎             ✈︎");
+                    System.out.println(ANSI_RESET+" ————————————————————————————————————————————————————————————————————————————————");
+                    System.out.println(ANSI_RESET+"|\t\t\t\t\t\t\t\t\t\t |");
+                    System.out.print("| Number of requests received : " + random_number +"\t\t\t\t\t\t |");
+                    
+                    hour = advanceHourScreen.getTime();
+                    nb_passengers = advanceHourScreen.getNb_passengers();
+                    System.out.println("\n"+"|"+"\t\t\t\t\t\t" + "Hour : " + hour + ", Passengers killed : " + nb_passengers + "\t |");
+    
+                    System.out.println(ANSI_RESET+"| 1) Go to Request Menu\t\t\t\t\t\t\t\t |");
+                    System.out.println("| 2) Go to Waiting Planes Menu\t\t\t\t\t\t\t |");
+                    System.out.println("| 3) Go to Runway Menu\t\t\t\t\t\t\t\t |");
+                    System.out.println("| 4) Quit\t\t\t\t\t\t\t\t\t |");
+                    System.out.println(ANSI_RESET+"|\t\t\t\t\t\t\t\t\t\t |");
+                    System.out.print("| Enter your choice:\t\t\t\t\t\t\t         |");
+                    
+                    System.out.println(ANSI_RESET+"\n ————————————————————————————————————————————————————————————————————————————————");
+    
                     choice1 = scanner.nextInt();
                 }
 
                 switch (choice1){
                     case 1:
                         System.out.println(ANSI_YELLOW+"\n\n\n\n\n\n\n\n\n\n");
-                        System.out.println(ANSI_YELLOW+"\nRequest Menu\n");
-
+                        System.out.println(ANSI_YELLOW+"\n=============================================================================\n");
                         RequestMenu requestMenu = new RequestMenu();
                         requestMenu.requests();
                         random_number--;
@@ -88,7 +96,8 @@ public class Main {
                         break;
 
                     case 2:
-                        System.out.println(ANSI_CYAN+"\nWaitings Planes\n");
+                        System.out.println(ANSI_CYAN+"\n\n\n\n\n\n\n\n\n\n");
+                        System.out.println(ANSI_CYAN+"\n=============================================================================\n");
 
                         WaitingPlanes waitingPlanes = new WaitingPlanes();
                         waitingPlanes.main();
@@ -96,7 +105,8 @@ public class Main {
                         break;
 
                     case 3:
-                        System.out.println(ANSI_RED+"\nRunway Menu\n");
+                        System.out.println(ANSI_RED+"\n\n\n\n\n\n\n\n\n\n");
+                        System.out.println(ANSI_RED+"\n=============================================================================\n");
 
                         RunwayMenu runwayMenu = new RunwayMenu();
                         runwayMenu.main();
@@ -117,12 +127,14 @@ public class Main {
             }
 
             if(random_number == 0){
-                System.out.println(ANSI_RESET+"\n------------------------------------------------\n");
+                System.out.println(ANSI_RESET+"\n\n\n\n\n\n\n\n\n\n");
+                System.out.println(ANSI_RESET+"————————————————————————————————————————————————————————————————————————————————");
                 System.out.println("1) Advance to next hour");
                 System.out.println("2) Go to Waiting Planes Menu");
                 System.out.println("3) Go to Runway Menu");
                 System.out.println("4) Quit");
                 System.out.print("\nEnter your choice : ");
+                System.out.println(ANSI_RESET+"\n————————————————————————————————————————————————————————————————————————————————");
                 choice1 = scanner.nextInt();
 
                 switch (choice1){
