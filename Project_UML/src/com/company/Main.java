@@ -1,3 +1,12 @@
+/* 
+
+This simulated training software is an air traffic controller
+Students: Gwendal, Erman, Lindsay and Maëlys
+Group A
+
+*/
+
+
 package com.company;
 
 import java.util.Random;
@@ -21,7 +30,6 @@ public class Main {
         String ANSI_YELLOW = "\u001B[33m";
         String ANSI_CYAN = "\u001B[36m";
         String ANSI_RED = "\u001B[31m";
-        String ANSI_GREEN = "\u001B[32m	";
 
         AdvanceHourScreen advanceHourScreen = new AdvanceHourScreen(hour, nb_passengers);
 
@@ -34,21 +42,27 @@ public class Main {
 
             while(random_number != 0){
 
-                System.out.println(ANSI_RESET+"\n------------------------------------------------");
-                System.out.print("\nNumber of requests received : " + random_number + "\n");
-
+                System.out.println(ANSI_RESET+"\n\n          ✈︎               ✈︎               ✈︎               ✈︎             ✈︎");
+                System.out.println(ANSI_RESET+" ————————————————————————————————————————————————————————————————————————————————");
+                System.out.println(ANSI_RESET+"|\t\t\t\t\t\t\t\t\t\t |");
+                System.out.print("| Number of requests received : " + random_number +"\t\t\t\t\t\t |");
+                
                 hour = advanceHourScreen.getTime();
                 nb_passengers = advanceHourScreen.getNb_passengers();
-                System.out.println("\n\t\t\t\t\t\t" + "Hour : " + hour + ", Passengers killed : " + nb_passengers);
+                System.out.println("\n"+"|"+"\t\t\t\t\t\t" + "Hour : " + hour + ", Passengers killed : " + nb_passengers + "\t |");
 
-                System.out.println(ANSI_RESET+"1) Go to Request Menu");
-                System.out.println("2) Go to Waiting Planes Menu");
-                System.out.println("3) Go to Runway Menu");
-                System.out.println("4) Quit");
-                System.out.print("\nEnter your choice : ");
+                System.out.println(ANSI_RESET+"| 1) Go to Request Menu\t\t\t\t\t\t\t\t |");
+                System.out.println("| 2) Go to Waiting Planes Menu\t\t\t\t\t\t\t |");
+                System.out.println("| 3) Go to Runway Menu\t\t\t\t\t\t\t\t |");
+                System.out.println("| 4) Quit\t\t\t\t\t\t\t\t\t |");
+                System.out.println(ANSI_RESET+"|\t\t\t\t\t\t\t\t\t\t |");
+                System.out.print("| Enter your choice:\t\t\t\t\t\t\t         |");
+                
+                System.out.println(ANSI_RESET+"\n ————————————————————————————————————————————————————————————————————————————————");
 
                 choice1 = scanner.nextInt();
 
+                
                 while (choice1 !=1 && choice1 !=2 && choice1 != 3 && choice1 != 4){
                     System.out.println(ANSI_RED+"----------------");
                     System.out.println(ANSI_RED+"ERROR !");
@@ -64,6 +78,7 @@ public class Main {
 
                 switch (choice1){
                     case 1:
+                        System.out.println(ANSI_YELLOW+"\n\n\n\n\n\n\n\n\n\n");
                         System.out.println(ANSI_YELLOW+"\nRequest Menu\n");
 
                         RequestMenu requestMenu = new RequestMenu();
